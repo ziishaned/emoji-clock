@@ -39,6 +39,10 @@ func TestItShouldReturnTheCorrectEmoji(t *testing.T) {
       "timestamp": "2018-06-05T23:45:26.371Z",
       "expected":  "🕛",
     },
+    6: {
+      "timestamp": "2018-06-05T23:11:26.371Z",
+      "expected":  "🕚",
+    },
   }
 
   for key, val := range data {
