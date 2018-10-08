@@ -31,16 +31,35 @@ var clock = map[float64]string{
 	11.5: "🕦",
 }
 
-// TimeToEmoji convert a provided time to emoji
-func TimeToEmoji(time time.Time, utc bool) {
-	var hours int
-	var minutes int
-	if utc == true {
-
+func hoursAndMinutesToEmoji(hours float64, minutes float64) string {
+	if hours > 11 {
+		hours = hours - 12
 	}
+	minutes = minutes / 60
+	if minutes < 0.25 {
+		minutes = 0
+	} else if minutes >= 0.25 && minutes < 0.75 {
+		minutes = 0.5
+	} else {
+		if hours == 11 {
+			hours = 0
+		} else {
+			hours = hours + 1
+		}
+		minutes = 0
+	}
+	return clock[float64(hours)+minutes]
 }
 
-func main() {
-	currentTime := time.Now()
-	TimeToEmoji(currentTime, true)
+func TimeToEmoji(time time.Time, utc bool) string {
+	var hours float64
+	var minutes float64
+	if utc == true {
+		hours = float64(time.UTC().Hour())
+		minutes = float64(time.UTC().Minute())
+	} else {
+		hours = float64(time.Hour())
+		minutes = float64(time.Minute())
+	}
+	return hoursAndMinutesToEmoji(hours, minutes)
 }
