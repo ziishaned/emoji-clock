@@ -1,7 +1,7 @@
 package main
 
 import (
-  "fmt"
+  "log"
   "reflect"
   "testing"
   "time"
@@ -19,7 +19,7 @@ func TestItShouldReturnTheCorrectEmoji(t *testing.T) {
   timeStr := "2014-11-12T11:45:26.371Z"
   time2, err := time.Parse("2006-01-02T15:04:05.000Z", timeStr)
   if err != nil {
-    fmt.Println(err)
+    log.Fatalln(err)
   }
   emoji := TimeToEmoji(time2, true)
   if emoji != "🕛" {
