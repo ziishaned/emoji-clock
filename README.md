@@ -32,3 +32,7 @@ func main() {
 ```txt
 🕒
 ```
+
+## License
+
+MIT &copy; [Zeeshan Ahmad](https://twitter.com/ziishaned)
