@@ -6,11 +6,15 @@ import (
 	"time"
 )
 
-func TestTimeToEmojiShouldReturnString(t *testing.T) {
+func TestItShouldReturnString(t *testing.T) {
 	var utc bool
 	currentTime := time.Now()
 	emoji := TimeToEmoji(currentTime, utc)
 	if reflect.TypeOf(emoji).String() != "string" {
 		t.Errorf("Expected type was string but got %s", reflect.TypeOf(emoji).String())
 	}
+}
+
+func TestItShouldReturnTheCorrectEmoji(t *testing.T) {
+
 }
