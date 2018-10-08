@@ -26,3 +26,9 @@ func main() {
   fmt.Println(emoji)
 }
 ```
+
+### Output
+
+```txt
+🕒
+```
