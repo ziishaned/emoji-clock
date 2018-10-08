@@ -23,14 +23,8 @@ import (
 func main() {
   currentTime := time.Now()
   emoji := TimeToEmoji(currentTime, false)
-  fmt.Println(emoji)
+  fmt.Println(emoji) // Output: 🕒
 }
-```
-
-### Output
-
-```txt
-🕒
 ```
 
 ## Contributions
