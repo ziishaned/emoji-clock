@@ -1,6 +1,7 @@
 package main
 
 import (
+  "log"
   "time"
 )
 
@@ -51,15 +52,19 @@ func hoursAndMinutesToEmoji(hours float64, minutes float64) string {
   return clock[float64(hours)+minutes]
 }
 
-func TimeToEmoji(time time.Time, utc bool) string {
+func TimeToEmoji(timeString string, utc bool) string {
+  timestamp, err := time.Parse(time.RFC3339, timeString)
+  if err != nil {
+    log.Fatal(err)
+  }
   var hours float64
   var minutes float64
   if utc == true {
-    hours = float64(time.UTC().Hour())
-    minutes = float64(time.UTC().Minute())
+    hours = float64(timestamp.UTC().Hour())
+    minutes = float64(timestamp.UTC().Minute())
   } else {
-    hours = float64(time.Hour())
-    minutes = float64(time.Minute())
+    hours = float64(timestamp.Hour())
+    minutes = float64(timestamp.Minute())
   }
   return hoursAndMinutesToEmoji(hours, minutes)
 }
