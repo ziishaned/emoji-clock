@@ -1,4 +1,4 @@
-# emoji-clock
+# emoji-clock [![Build Status](https://travis-ci.org/ziishaned/emoji-clock.svg?branch=master)](https://travis-ci.org/ziishaned/emoji-clock)
 
 Get the emoji clock face for a given time.
 
