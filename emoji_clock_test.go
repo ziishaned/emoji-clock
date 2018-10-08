@@ -1,14 +1,12 @@
 package main
 
 import (
-  "log"
   "reflect"
   "testing"
-  "time"
 )
 
 func TestItShouldReturnString(t *testing.T) {
-  currentTime := time.Now()
+  currentTime := "2014-11-12T11:45:26.371Z"
   emoji := TimeToEmoji(currentTime, false)
   if reflect.TypeOf(emoji).String() != "string" {
     t.Errorf("Expected type was string but got %s", reflect.TypeOf(emoji).String())
@@ -16,13 +14,37 @@ func TestItShouldReturnString(t *testing.T) {
 }
 
 func TestItShouldReturnTheCorrectEmoji(t *testing.T) {
-  timeStr := "2014-11-12T11:45:26.371Z"
-  time2, err := time.Parse("2006-01-02T15:04:05.000Z", timeStr)
-  if err != nil {
-    log.Fatalln(err)
+  var data = map[int]map[string]string{
+    0: {
+      "timestamp": "2014-11-12T11:45:26.371Z",
+      "expected":  "🕛",
+    },
+    1: {
+      "timestamp": "2018-06-05T01:15:26.371Z",
+      "expected":  "🕜",
+    },
+    2: {
+     "timestamp": "2018-06-05T20:45:26.371Z",
+     "expected":  "🕘",
+    },
+    3: {
+     "timestamp": "2018-06-05T21:45:26.371Z",
+     "expected":  "🕙",
+    },
+    4: {
+     "timestamp": "2018-06-05T22:45:26.371Z",
+     "expected":  "🕚",
+    },
+    5: {
+     "timestamp": "2018-06-05T23:45:26.371Z",
+     "expected":  "🕛",
+    },
   }
-  emoji := TimeToEmoji(time2, true)
-  if emoji != "🕛" {
-    t.Errorf("Expected emoji is 🕛 but received %s", emoji)
+
+  for key, val := range data {
+    emoji := TimeToEmoji(val["timestamp"], true)
+    if emoji != val["expected"] {
+      t.Errorf("%b: Expected emoji is %s but received %s", key, val["expected"], emoji)
+    }
   }
 }
