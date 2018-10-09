@@ -1,4 +1,4 @@
-# emoji-clock [![Build Status](https://img.shields.io/travis/ziishaned/emoji-clock.svg?style=flat-square)](https://travis-ci.org/ziishaned/emoji-clock) [![Codecov](https://img.shields.io/codecov/c/github/ziishaned/emoji-clock.svg?style=flat-square)](https://codecov.io/gh/ziishaned/emoji-clock) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/ziishaned/emoji-clock)
+# emoji-clock [![Build Status](https://img.shields.io/travis/ziishaned/emoji-clock.svg?style=flat-square)](https://travis-ci.org/ziishaned/emoji-clock) [![Go Report](https://img.shields.io/badge/go%20report-A%2B-brightgreen.svg?style=flat-square)](https://goreportcard.com/report/github.com/ziishaned/emoji-clock) [![Codecov](https://img.shields.io/codecov/c/github/ziishaned/emoji-clock.svg?style=flat-square)](https://codecov.io/gh/ziishaned/emoji-clock) [![Software License](https://img.shields.io/badge/license-MIT-brightgreen.svg?style=flat-square)](https://github.com/ziishaned/emoji-clock)
 
 Get the emoji clock face for a given time.
 
