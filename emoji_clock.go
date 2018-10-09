@@ -4,6 +4,8 @@ import (
   "time"
 )
 
+// clock is the list of emoji's one will be returned on the basis
+// of given time.
 var clock = map[float64]string{
   0:    "🕛",
   1:    "🕐",
@@ -31,6 +33,8 @@ var clock = map[float64]string{
   11.5: "🕦",
 }
 
+// hoursAndMinutesToEmoji will return the emoji on the basis of
+// hours and minutes.
 func hoursAndMinutesToEmoji(hours float64, minutes float64) string {
   if hours > 11 {
     hours = hours - 12
@@ -51,20 +55,15 @@ func hoursAndMinutesToEmoji(hours float64, minutes float64) string {
   return clock[float64(hours)+minutes]
 }
 
-func TimeToEmoji(timeString string, utc bool) (emoji string, err error) {
+// TimeToEmoji pass the time string of which you want the clock emoji.
+func TimeToEmoji(timeString string) (emoji string, err error) {
   timestamp, err := time.Parse(time.RFC3339, timeString)
   if err != nil {
     return
   }
-  var hours float64
-  var minutes float64
-  if utc == true {
-    hours = float64(timestamp.UTC().Hour())
-    minutes = float64(timestamp.UTC().Minute())
-  } else {
-    hours = float64(timestamp.Hour())
-    minutes = float64(timestamp.Minute())
-  }
+
+  hours := float64(timestamp.Hour())
+  minutes := float64(timestamp.Minute())
   emoji = hoursAndMinutesToEmoji(hours, minutes)
   return
 }

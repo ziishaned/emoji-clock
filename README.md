@@ -18,12 +18,13 @@ package main
 import (
   "fmt"
   "time"
+  . "github.com/ziishaned/emoji-clock"
 )
 
 func main() {
-  currentTime := time.Now()
-  emoji := TimeToEmoji(currentTime, false)
-  fmt.Println(emoji) // Output: 🕒
+  timestamp := "2016-06-17T20:41:02.705Z"
+  emoji, _ := TimeToEmoji(timestamp)
+  fmt.Println(emoji) // 🕒
 }
 ```
 

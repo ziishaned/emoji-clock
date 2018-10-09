@@ -7,7 +7,7 @@ import (
 
 func TestItShouldReturnString(t *testing.T) {
   currentTime := "2014-11-12T11:45:26.371Z"
-  emoji, _ := TimeToEmoji(currentTime, false)
+  emoji, _ := TimeToEmoji(currentTime)
   if reflect.TypeOf(emoji).String() != "string" {
     t.Errorf("Expected type was string but got %s", reflect.TypeOf(emoji).String())
   }
@@ -46,7 +46,7 @@ func TestItShouldReturnTheCorrectEmoji(t *testing.T) {
   }
 
   for key, val := range data {
-    emoji, _ := TimeToEmoji(val["timestamp"], true)
+    emoji, _ := TimeToEmoji(val["timestamp"])
     if emoji != val["expected"] {
       t.Errorf("%b: Expected emoji is %s but received %s", key, val["expected"], emoji)
     }
@@ -55,7 +55,7 @@ func TestItShouldReturnTheCorrectEmoji(t *testing.T) {
 
 func TestItThrowsErrorFroWrongTimeString(t *testing.T) {
   timestampString := "wrong_timestamp"
-  _, err := TimeToEmoji(timestampString, false)
+  _, err := TimeToEmoji(timestampString)
   if err.Error() != "parsing time \"wrong_timestamp\" as \"2006-01-02T15:04:05Z07:00\": cannot parse \"wrong_timestamp\" as \"2006\"" {
     t.Errorf("Please provide a valid timestamp")
   }
