@@ -17,14 +17,15 @@ package main
 
 import (
   "fmt"
-  "time"
   . "github.com/ziishaned/emoji-clock"
 )
 
 func main() {
-  timestamp := "2016-06-17T20:41:02.705Z"
-  emoji, _ := TimeToEmoji(timestamp)
-  fmt.Println(emoji) // 🕒
+  emoji, _ := TimeToEmoji("2014-03-09T22:47:02.705Z")
+  fmt.Println(emoji) // 🕚
+  
+  emoji2, _ := TimeToEmoji("2018-10-09T21:40:02.705Z")
+  fmt.Println(emoji2) // 🕤
 }
 ```
 
